@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resource :users
 
+  get 'homepage' => 'sessions#homepage'
+
+  get 'logout' => 'sessions#logout'
+
   get 'sessions/new'
 
   get 'users/new'
