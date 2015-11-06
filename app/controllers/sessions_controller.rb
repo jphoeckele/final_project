@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def homepage
+    @user = User.find_by(params[:username])
   end
 
   def logout
