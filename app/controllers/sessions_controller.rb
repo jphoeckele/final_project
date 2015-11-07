@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
   end
 
   def homepage
-    @user = User.find_by(params[:username])
+    @user = User.find_by(params[:email])
   end
 
   def logout
@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-	 @user = User.find_by(username: params[:username]).try(:authenticate, params[:password])
+	 @user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
 
  	  if @user
  		 session[:user_id] = @user.id
