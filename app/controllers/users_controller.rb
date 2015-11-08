@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path, notice: 'User was successfully created.'
+      redirect_to homepage_path, notice: 'User was successfully created.'
     else
       render :new
     end
@@ -29,9 +29,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      format.html{redirect_to @user, notice: 'User was successfully updated.'}
+      html{redirect_to @user, notice: 'User was successfully updated.'}
     else
-      format.html{render :new}
+      html{render :new}
     end
   end
 

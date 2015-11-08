@@ -4,25 +4,25 @@ Rails.application.routes.draw do
 
   resource :sessions
 
-  resource :users
+  resources :users, except: :index
 
   get 'homepage' => 'sessions#homepage'
 
   get 'logout' => 'sessions#logout'
 
-  get 'sessions/new'
+  # get 'sessions/new'
 
-  get 'users/new'
+  # get 'users/new'
 
-  get 'users/show'
+  # get 'users/show'
 
-  get 'users/edit'
+  # get 'users/edit'
 
-  get 'users/destroy'
+  # get 'users/destroy'
 
-  get 'users/create'
+  # get 'users/create'
 
-  get 'users/update'
+  # get 'users/update'
 
   get 'doctors/show'
 
