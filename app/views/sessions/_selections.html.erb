@@ -274,13 +274,13 @@
  <option value="wisconsinphysiciansserviceinsurancecorporation">Wisconsin Physicians Service Insurance Corporation</option>
  <option value="vsp">VSP</option>
 </select>
-
-
+<br><br>
 <form>
-  <input id="txtZip" name="zip" type="text" /><br />
-  <input id="Button1" type="submit" value="Validate"
-  onclick="IsValidZipCode(this.form.zip.value)" />
+  <%= text_field_tag 'zip' %><br><br>
+  <p class="zip-validate"><%= submit_tag 'Validate' %>
 </form>
+<br>
+<p class="doc-search"><%= submit_tag 'Search' %></p>
 
 
 

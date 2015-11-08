@@ -91,6 +91,7 @@ $(function() {
   $( ".insurance_dropdown" ).change(initialize);
 
   $('.doc-search').on('click', getDocProfile);
+  $('.zip-validate').on('click', IsValidZipCode);
 
   //Used to get and put doc info list to the screen
   function getDocProfile() {
@@ -105,6 +106,16 @@ $(function() {
     });
   };
 
+  function IsValidZipCode() {
+    var zip = $('#zip').val();
+    var isValid = /^[0-9]{5}?$/.test(zip);
+    if (isValid){
+      alert('We need to convert to lat lon here');
+    } else {
+      alert('Invalid ZipCode');
+    }
+  }
+
   //Template for indexing doctors
   function template(first_name, last_name, specialty, picture) {
     return ["<tr>",
@@ -117,16 +128,7 @@ $(function() {
   }
 });
 
-<script type="text/javascript">
-function IsValidZipCode(zip) {
-  var isValid = /^[0-9]{5}?$/.test(zip);
-  if (isValid)
-    alert('Valid ZipCode');
-  else {
-    alert('Invalid ZipCode');
-  }
-}
-</script>
+
 // Example of how to grab profile info and append to pages
 // $.getJSON( resource_url, function(data) {
 //   var list = data.data;
