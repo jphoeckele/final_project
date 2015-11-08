@@ -98,18 +98,19 @@ $(function() {
       var list = data.data;
       for (var i = 0; i < list.length; i++) {
         var profile = list[i].profile;
-        // var ratings = list[i].ratings;
-        // var stars = ratings[0].image_url_small
-        $('.doc-index').append(template(profile.first_name, profile.last_name, profile.image_url));
+        var specialties = list[i].specialties;
+        var specialty = specialties[0].actor;
+        $('.doc-index').append(template(profile.first_name, profile.last_name, specialty, profile.image_url));
       }
     });
   };
 
   //Template for indexing doctors
-  function template(first_name, last_name, picture) {
+  function template(first_name, last_name, specialty, picture) {
     return ["<tr>",
     "<td>" + first_name + "</td>",
     "<td>" + last_name + "</td>",
+    "<td>" + specialty + "</td>",
     "<td><img src=" + picture + "></td>",
     "</tr>"
     ].join();
