@@ -87,3 +87,20 @@ $(function() {
   google.maps.event.addDomListener(window, 'load', initialize);
 
 });
+
+
+// Example of how to grab profile info and append to pages
+// $.getJSON( resource_url, function(data) {
+//   var list = data.data;
+//   var profile = list[0];
+//   console.log(list);
+//   $('.doc-index').append(template(profile.profile.first_name, profile.profile.title, profile.profile.image_url));
+// });
+// function template(name, data, picture) {
+//   return ["<tr>",
+//             "<td>" + name + "</td>",
+//             "<td>" + data + "</td>",
+//             "<td>" + picture + "</td>",
+//         "</tr>"
+//         ].join();
+// }
