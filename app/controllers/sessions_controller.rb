@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    @user = User.find_by(params[:email])
   end
 
   def homepage
