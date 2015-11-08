@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
+  before_action :set_user, only [:welcome, :homepage]
+
   def new
   end
 
   def welcome
-    @user = User.find_by(params[:email])
   end
 
   def homepage
-    @user = User.find_by(params[:email])
     session[:user_id] = @user.id
   end
 
@@ -24,6 +24,11 @@ class SessionsController < ApplicationController
  	  else
  	    render action: 'new'
  	  end
+  end
+
+  private
+  def set_user
+    @user = User.find_by(params[:email])
   end
 end
 
