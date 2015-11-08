@@ -40,8 +40,6 @@ $(function() {
       }
       console.log(latLngInfo);
       for (var i = 0; i < 50; i++ ) {
-        var lat = latLngInfo;
-        var lon = latLngInfo;
         locations.push ( {name:"BUG", latlng: new google.maps.LatLng(lat, lon)});
       }
     });
