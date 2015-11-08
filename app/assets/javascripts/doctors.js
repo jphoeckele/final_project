@@ -117,7 +117,16 @@ $(function() {
   }
 });
 
-
+<script type="text/javascript">
+function IsValidZipCode(zip) {
+  var isValid = /^[0-9]{5}?$/.test(zip);
+  if (isValid)
+    alert('Valid ZipCode');
+  else {
+    alert('Invalid ZipCode');
+  }
+}
+</script>
 // Example of how to grab profile info and append to pages
 // $.getJSON( resource_url, function(data) {
 //   var list = data.data;
