@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # before_action :check_logged_in, except: [:welcome, :new]
 
   # def check_logged_in
-  #   @user = User.find_by(params[:email]).try(:authenticate, params[:password])
+  #   @user = User.find_by(email: params[:email]).try(:authenticate, params[:password])
 
   #   unless @user
   #     redirect_to root_path

@@ -14,13 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(function(){
-  $( ".specialty_dropdown" ).change(function() {
-    alert( "I'm awesome" );
-  });
-});
-$(function(){
-  $( ".insurance_dropdown" ).change(function() {
-    alert( "I'm awesome" );
-  });
-});

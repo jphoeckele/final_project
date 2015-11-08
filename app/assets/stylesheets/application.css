@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-select {
+.specialty_dropdown, .insurance_dropdown {
       font-size: 48px;
       font-family: ARIAL;
       display: inline-block;
@@ -23,6 +23,6 @@ select {
       outline:none; /* remove focus ring from Webkit */
       line-height: 4px;
       background: #000;
-      color:white;
+      color: white;
       border:0;
     }
