@@ -27,8 +27,6 @@ $(function() {
   //   console.log(latLngInfo);
   // });
 
-
-
   // GOOGLE MAPS API
   function initialize() {
 
@@ -87,6 +85,10 @@ $(function() {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
+  var specialty = $('.specialty_dropdown').on('change', function(e) {
+    console.log(this.options[e.target.selectedIndex].text);
+  });
+
   $( ".specialty_dropdown" ).change(initialize);
   $( ".insurance_dropdown" ).change(initialize);
 
@@ -127,7 +129,6 @@ $(function() {
     ].join();
   }
 });
-
 
 // Example of how to grab profile info and append to pages
 // $.getJSON( resource_url, function(data) {
