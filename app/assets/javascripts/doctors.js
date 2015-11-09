@@ -34,9 +34,6 @@ $(function() {
       var infowindow = new google.maps.InfoWindow({
         content:contentstring
       })
-      // google.maps.event.addListener(marker,'click',function(){
-      //   infowindow.open(map,marker);
-      // });
     }
 
   var searchButton = document.getElementById('doc-search');
@@ -89,6 +86,10 @@ $(function() {
       for(var i=0; i<locations.length; i++ ) {
         var marker = new google.maps.Marker({position: locations[i].latlng, map:map, title:locations[i].name});
       }
+
+      // google.maps.event.addListener(marker,'click',function(){
+      //   infowindow.open(map,marker);
+      // });
     });
   }
 
