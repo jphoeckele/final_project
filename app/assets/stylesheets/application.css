@@ -26,3 +26,7 @@
       color: white;
       border:0;
     }
+#map {
+      width: 750px;
+      height: 500px;
+}
