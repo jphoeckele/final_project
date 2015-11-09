@@ -1,6 +1,6 @@
 $(function() {
   var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-  var resource_url = 'https://api.betterdoctor.com/2015-01-27/doctors?query=specialty_uid=allergist&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=50&user_key=' + api_key;
+  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?query=specialty_uid="+ getSpecialty() +"&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
 
   // Get request to server, using a call back function.
   function getLatLng() {
@@ -39,6 +39,7 @@ $(function() {
           latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
         });
       }
+      console.log(list);
       // Here we need to extract the lat and lon to use in the map
       for (var i = 0; i < 50; i++ ) {
         // locations.push ( {name:"BUG", latlng: new google.maps.LatLng(lat, lon)});
@@ -85,12 +86,12 @@ $(function() {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-  var specialty = $('.specialty_dropdown').on('change', function(e) {
-    console.log(this.options[e.target.selectedIndex].text);
-  });
+  function getSpecialty() {
+    return $('select.specialty-dropdown').find('option:selected').val();
+  }
 
-  $( ".specialty_dropdown" ).change(initialize);
-  $( ".insurance_dropdown" ).change(initialize);
+  $( ".specialty-dropdown" ).change(initialize);
+  $( ".insurance-dropdown" ).change(initialize);
 
   $('.doc-search').on('click', getDocProfile);
   $('.zip-validate').on('click', IsValidZipCode);
@@ -121,8 +122,7 @@ $(function() {
   //Template for indexing doctors
   function template(first_name, last_name, specialty, picture) {
     return ["<tr>",
-    "<td>" + first_name + "</td>",
-    "<td>" + last_name + "</td>",
+    "<td>" + first_name + " " + last_name + "</td>",
     "<td>" + specialty + "</td>",
     "<td><img src=" + picture + "></td>",
     "</tr>"

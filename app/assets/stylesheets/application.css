@@ -13,7 +13,7 @@
  *= require_tree .
  *= require_self
  */
-.specialty_dropdown, .insurance_dropdown {
+.specialty-dropdown, .insurance-dropdown {
       font-size: 48px;
       font-family: ARIAL;
       display: inline-block;
