@@ -1,6 +1,6 @@
 $(function() {
   var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + getSpecialty() + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + getSpecialty() + "&insurance_uid=" + getInsurance() + "&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
 
   // Get request to server, using a call back function.
   function getLatLng() {
