@@ -1,28 +1,28 @@
 $(function() {
   // Get request to server, using a call back function.
-  // function getLatLng() {
-  //   return $.getJSON( resource_url, function(data) {
-  //     var latLngInfo = new Object();
-  //     data = latLngInfo;
-  //   });
-  // }
+  function getLatLng() {
+    return $.getJSON( resource_url, function(data) {
+      var latLngInfo = new Object();
+      data = latLngInfo;
+    });
+  }
 
-  //Throwing the above function into a variable to use later to return a value
-  // var latlng = getLatLng();
+  // Throwing the above function into a variable to use later to return a value
+  var latlng = getLatLng();
 
   // I put this function inside of the Google Maps Initiliaze function so that
   // the latLngInfo variable is in scope.
-  // latlng.success(function(data) {
-  //   var latLngInfo = new Object();
-  //   var list = data.data
-  //   for (var i = 0; i < list.length; i++) {
-  //     var practices = list[i].practices;
-  //     practices.forEach(function(practice) {
-  //       latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
-  //     });
-  //   }
-  //   console.log(latLngInfo);
-  // });
+  latlng.success(function(data) {
+    var latLngInfo = new Object();
+    var list = data.data
+    for (var i = 0; i < list.length; i++) {
+      var practices = list[i].practices;
+      practices.forEach(function(practice) {
+        latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
+      });
+    }
+    console.log(latLngInfo);
+  });
 
   // GOOGLE MAPS API
   function initialize() {
@@ -36,10 +36,12 @@ $(function() {
           latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
         });
       }
-      console.log(list);
       // Here we need to extract the lat and lon to use in the map
-      for (var i = 0; i < 50; i++ ) {
-        // locations.push ( {name:"BUG", latlng: new google.maps.LatLng(lat, lon)});
+      for (var practice in latLngInfo) {
+        var lat = latLngInfo[practice].lat;
+        var lon = latLngInfo[practice].lon;
+        console.log(lat);
+        locations.push ( {name:"BUG", latlng: new google.maps.LatLng(lat, lon)});
       }
     });
 
@@ -81,7 +83,7 @@ $(function() {
     });
   }
 
-  // google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(window, 'load', initialize);
 
   // $( ".specialty-dropdown" ).change(initialize);
   // $( ".insurance-dropdown" ).change(initialize);
