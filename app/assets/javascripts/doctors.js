@@ -1,19 +1,16 @@
 $(function() {
-  var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + getSpecialty() + "&insurance_uid=" + getInsurance() + "&sort=rating-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
-
   // Get request to server, using a call back function.
-  function getLatLng() {
-    return $.getJSON( resource_url, function(data) {
-      var latLngInfo = new Object();
-      data = latLngInfo;
-    });
-  }
+  // function getLatLng() {
+  //   return $.getJSON( resource_url, function(data) {
+  //     var latLngInfo = new Object();
+  //     data = latLngInfo;
+  //   });
+  // }
 
   //Throwing the above function into a variable to use later to return a value
-  var latlng = getLatLng();
+  // var latlng = getLatLng();
 
-  // I put this function inside of the Google Maps Initiliaze funciton so that
+  // I put this function inside of the Google Maps Initiliaze function so that
   // the latLngInfo variable is in scope.
   // latlng.success(function(data) {
   //   var latLngInfo = new Object();
@@ -84,33 +81,36 @@ $(function() {
     });
   }
 
-  google.maps.event.addDomListener(window, 'load', initialize);
+  // google.maps.event.addDomListener(window, 'load', initialize);
 
-  function getSpecialty() {
-    return $('select.specialty-dropdown').find('option:selected').val();
-  }
-
-  function getInsurance() {
-    return $('select.insurance-dropdown').find('option:selected').val();
-  }
-
-
-  $( ".specialty-dropdown" ).change(initialize);
-  $( ".insurance-dropdown" ).change(initialize);
+  // $( ".specialty-dropdown" ).change(initialize);
+  // $( ".insurance-dropdown" ).change(initialize);
 
   $('.doc-search').on('click', getDocProfile);
   $('.zip-validate').on('click', IsValidZipCode);
 
   //Used to get and put doc info list to the screen
   function getDocProfile() {
+    var insurance = $('select.insurance-dropdown').find('option:selected').val();
+    var specialty = $('select.specialty-dropdown').find('option:selected').val();
+    var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
     $.getJSON( resource_url, function(data) {
       var list = data.data;
+      var profiles = "";
       for (var i = 0; i < list.length; i++) {
         var profile = list[i].profile;
         var specialties = list[i].specialties;
         var specialty = specialties[0].actor;
-        $('.doc-index').append(template(profile.first_name, profile.last_name, specialty, profile.image_url));
+        if(!list[i].ratings[0]) {
+          var stars = "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-4.5.png"
+        } else {
+          var ratings = list[i].ratings[0];
+          var stars = ratings.image_url_small_2x;
+        }
+        profiles += (template(profile.first_name, profile.last_name, specialty, stars, profile.image_url));
       }
+      $('.doc-index').html(profiles);
     });
   };
 
@@ -125,10 +125,11 @@ $(function() {
   }
 
   //Template for indexing doctors
-  function template(first_name, last_name, specialty, picture) {
+  function template(first_name, last_name, specialty, stars, picture) {
     return ["<tr>",
     "<td>" + first_name + " " + last_name + "</td>",
     "<td>" + specialty + "</td>",
+    "<td><img src=" + stars + "></td>",
     "<td><img src=" + picture + "></td>",
     "</tr>"
     ].join();
