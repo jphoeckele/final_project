@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#logout'
 
+  get 'doctors/show'
+
+  get 'doctors/index'
+
+  get 'doctors/search'
   # get 'sessions/new'
 
   # get 'users/new'
@@ -24,11 +29,6 @@ Rails.application.routes.draw do
 
   # get 'users/update'
 
-  get 'doctors/show'
-
-  get 'doctors/index'
-
-  get 'doctors/search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
