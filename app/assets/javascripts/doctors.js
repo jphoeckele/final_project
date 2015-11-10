@@ -1,5 +1,5 @@
 $(function() {
-  function environment() {
+  function getEnvironment() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
     var specialty = $('select.specialty-dropdown').find('option:selected').val();
     var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
@@ -9,11 +9,11 @@ $(function() {
 
 
   function setEnvironment() {
-    var environmentvars = environment();
-    var insurance = environmentvars.insurance;
-    var specialty = environmentvars.specialty;
-    var api_key = environmentvars.api_key;
-    var resource_url = environmentvars.resource_url; 
+    var environmentVars = getEnvironment();
+    var insurance = environmentVars.insurance;
+    var specialty = environmentVars.specialty;
+    var api_key = environmentVars.api_key;
+    var resource_url = environmentVars.resource_url;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
   // I put this function inside of the Google Maps Initiliaze function so that
