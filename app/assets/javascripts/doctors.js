@@ -1,9 +1,21 @@
 $(function() {
-  var insurance = $('select.insurance-dropdown').find('option:selected').val();
-  var specialty = $('select.specialty-dropdown').find('option:selected').val();
-  var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+  function environment() {
+    var insurance = $('select.insurance-dropdown').find('option:selected').val();
+    var specialty = $('select.specialty-dropdown').find('option:selected').val();
+    var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+    return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
+  }
 
+
+  function setEnvironment() {
+    var environmentvars = environment();
+    var insurance = environmentvars.insurance;
+    var specialty = environmentvars.specialty;
+    var api_key = environmentvars.api_key;
+    var resource_url = environmentvars.resource_url; 
+    return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
+  }
   // I put this function inside of the Google Maps Initiliaze function so that
   // the latLngInfo variable is in scope.
   // latlng.success(function(data) {
@@ -41,13 +53,10 @@ $(function() {
   google.maps.event.addDomListener(searchButton, 'click', populate);
 
   function populate() {
-    var insurance = $('select.insurance-dropdown').find('option:selected').val();
-    var specialty = $('select.specialty-dropdown').find('option:selected').val();
-    var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+    var environmentVariables = setEnvironment();
 
     function getLatLng() {
-      return $.getJSON( resource_url, function(data) {
+      return $.getJSON(environmentVariables.resource_url, function(data) {
         var latLngInfo = new Object();
         data = latLngInfo;
       });
@@ -101,11 +110,9 @@ $(function() {
 
   //Used to get and put doc info list to the screen
   function getDocProfile() {
-    var insurance = $('select.insurance-dropdown').find('option:selected').val();
-    var specialty = $('select.specialty-dropdown').find('option:selected').val();
-    var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
-    $.getJSON( resource_url, function(data) {
+    var environmentVariables = setEnvironment();
+
+    $.getJSON(environmentVariables.resource_url, function(data) {
       var list = data.data;
       var profiles = "";
       for (var i = 0; i < list.length; i++) {
@@ -122,7 +129,7 @@ $(function() {
       }
       $('.doc-index').html(profiles);
     });
-  };
+  }
 
   function IsValidZipCode() {
     var zip = $('#zip').val();
