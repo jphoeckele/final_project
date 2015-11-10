@@ -16,18 +16,6 @@ $(function() {
     var resource_url = environmentVars.resource_url;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
-  // I put this function inside of the Google Maps Initiliaze function so that
-  // the latLngInfo variable is in scope.
-  // latlng.success(function(data) {
-  //   var latLngInfo = new Object();
-  //   var list = data.data
-  //   for (var i = 0; i < list.length; i++) {
-  //     var practices = list[i].practices;
-  //     practices.forEach(function(practice) {
-  //       latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
-  //     });
-  //   }
-  // });
 
   // GOOGLE MAPS API
   function initialize() {
@@ -47,10 +35,6 @@ $(function() {
         content:contentstring
       })
     }
-
-  var searchButton = document.getElementById('doc-search');
-  google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(searchButton, 'click', populate);
 
   function populate() {
     var environmentVariables = setEnvironment();
@@ -102,12 +86,6 @@ $(function() {
     });
   }
 
-  // $( ".specialty-dropdown" ).change(initialize);
-  // $( ".insurance-dropdown" ).change(initialize);
-
-  $('#doc-search').on('click', getDocProfile);
-  $('.zip-validate').on('click', IsValidZipCode);
-
   //Used to get and put doc info list to the screen
   function getDocProfile() {
     var environmentVariables = setEnvironment();
@@ -120,7 +98,7 @@ $(function() {
         var specialties = list[i].specialties;
         var specialty = specialties[0].actor;
         if(!list[i].ratings[0]) {
-          var stars = "https://asset2.betterdoctor.com/assets/consumer/stars/stars-small-4.5.png"
+          var stars = "/assets/rating-not-found.png"
         } else {
           var ratings = list[i].ratings[0];
           var stars = ratings.image_url_small_2x;
@@ -151,20 +129,15 @@ $(function() {
     "</tr>"
     ].join();
   }
-});
 
-// Example of how to grab profile info and append to pages
-// $.getJSON( resource_url, function(data) {
-//   var list = data.data;
-//   var profile = list[0];
-//   console.log(list);
-//   $('.doc-index').append(template(profile.profile.first_name, profile.profile.title, profile.profile.image_url));
-// });
-// function template(name, data, picture) {
-//   return ["<tr>",
-//             "<td>" + name + "</td>",
-//             "<td>" + data + "</td>",
-//             "<td>" + picture + "</td>",
-//         "</tr>"
-//         ].join();
-// }
+  //Sets the search button as a variable to be called by the google maps DomListener
+  var searchButton = document.getElementById('doc-search');
+
+  //First we initialize an empty map, then on click of the search button we populate the map
+  google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(searchButton, 'click', populate);
+
+  //This doc-search button also pulls the profiles
+  $('#doc-search').on('click', getDocProfile);
+  $('.zip-validate').on('click', IsValidZipCode);
+});
