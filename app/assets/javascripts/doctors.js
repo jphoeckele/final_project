@@ -1,34 +1,62 @@
 $(function() {
-  // Get request to server, using a call back function.
-  function getLatLng() {
-    return $.getJSON( resource_url, function(data) {
-      var latLngInfo = new Object();
-      data = latLngInfo;
-    });
-  }
-
-  // Throwing the above function into a variable to use later to return a value
-  var latlng = getLatLng();
+  var insurance = $('select.insurance-dropdown').find('option:selected').val();
+  var specialty = $('select.specialty-dropdown').find('option:selected').val();
+  var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
+  var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
 
   // I put this function inside of the Google Maps Initiliaze function so that
   // the latLngInfo variable is in scope.
-  latlng.success(function(data) {
-    var latLngInfo = new Object();
-    var list = data.data
-    for (var i = 0; i < list.length; i++) {
-      var practices = list[i].practices;
-      practices.forEach(function(practice) {
-        latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
-      });
-    }
-    console.log(latLngInfo);
-  });
+  // latlng.success(function(data) {
+  //   var latLngInfo = new Object();
+  //   var list = data.data
+  //   for (var i = 0; i < list.length; i++) {
+  //     var practices = list[i].practices;
+  //     practices.forEach(function(practice) {
+  //       latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
+  //     });
+  //   }
+  // });
 
   // GOOGLE MAPS API
   function initialize() {
+      var mapCanvas = document.getElementById('map');
+
+      var mapOptions = {
+        center: new google.maps.LatLng(37.773, -122.413),
+        zoom: 5,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+      var contentstring = '<div> Doctor <br> hello <br> sup </div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content:contentstring
+      })
+    }
+
+  var searchButton = document.getElementById('doc-search');
+  google.maps.event.addDomListener(window, 'load', initialize);
+  google.maps.event.addDomListener(searchButton, 'click', populate);
+
+  function populate() {
+    var insurance = $('select.insurance-dropdown').find('option:selected').val();
+    var specialty = $('select.specialty-dropdown').find('option:selected').val();
+    var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+
+    function getLatLng() {
+      return $.getJSON( resource_url, function(data) {
+        var latLngInfo = new Object();
+        data = latLngInfo;
+      });
+    }
+
+    var latlng = getLatLng();
 
     latlng.success(function(data) {
-      var latLngInfo = new Object();
+      latLngInfo = new Object();
       var list = data.data
       for (var i = 0; i < list.length; i++) {
         var practices = list[i].practices;
@@ -36,59 +64,39 @@ $(function() {
           latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
         });
       }
-      // Here we need to extract the lat and lon to use in the map
+
+      var mapCanvas = document.getElementById('map');
+
+      var mapOptions = {
+        center: new google.maps.LatLng(37.773, -122.413),
+        zoom: 7,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+
+      var map = new google.maps.Map(mapCanvas, mapOptions);
+
+      var locations = [];
+
       for (var practice in latLngInfo) {
         var lat = latLngInfo[practice].lat;
         var lon = latLngInfo[practice].lon;
-        console.log(lat);
-        locations.push ( {name:"BUG", latlng: new google.maps.LatLng(lat, lon)});
-      }
-    });
-
-    var mapCanvas = document.getElementById('map');
-
-    var mapOptions = {
-      center: new google.maps.LatLng(37.773, -122.413),
-      zoom: 16,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+        locations.push ( {name: practice, latlng: new google.maps.LatLng(lat, lon)});
       }
 
-    var map = new google.maps.Map(mapCanvas, mapOptions);
+      for(var i=0; i<locations.length; i++ ) {
+        var marker = new google.maps.Marker({position: locations[i].latlng, map:map, title:locations[i].name});
+      }
 
-    var locations = [];
-
-    // for (var i = 0; i < 50; i++ ) {
-    //   locations.push ( {name:"BUG", latlng: new google.maps.LatLng(test, test2)})
-    // }
-
-    for(var i=0; i<locations.length; i++ ) {
-      var marker = new google.maps.Marker({position: locations[i].latlng, map:map, title:locations[i].name});
-    }
-
-
-    // var point = new google.maps.LatLng(25.801579, -80.202176);
-
-    // var marker = new google.maps.Marker({
-    //     position:point,
-    //     map:map,
-    // })
-
-
-    var contentstring = '<div> Doctor <br> hello <br> sup </div>';
-    var infowindow = new google.maps.InfoWindow({
-        content:contentstring
-        })
-    google.maps.event.addListener(marker,'click',function(){
-      infowindow.open(map,marker);
+      // google.maps.event.addListener(marker,'click',function(){
+      //   infowindow.open(map,marker);
+      // });
     });
   }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
 
   // $( ".specialty-dropdown" ).change(initialize);
   // $( ".insurance-dropdown" ).change(initialize);
 
-  $('.doc-search').on('click', getDocProfile);
+  $('#doc-search').on('click', getDocProfile);
   $('.zip-validate').on('click', IsValidZipCode);
 
   //Used to get and put doc info list to the screen

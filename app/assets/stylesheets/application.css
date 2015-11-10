@@ -26,6 +26,7 @@
       color: white;
       border:0;
     }
+
   body {
     background-image: url(http://kreativo.se/backlogin.jpg);
     font-family: "Helvetica Neue", Helvetica, Arial;
@@ -174,3 +175,9 @@
       from(#a4b0cb),
       to(#b9c5dd));
   }
+
+#map {
+      width: 750px;
+      height: 500px;
+}
+
