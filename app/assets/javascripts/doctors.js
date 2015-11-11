@@ -1,12 +1,42 @@
 $(function() {
+  // var zipcode = "33143"
+  var location;
+  function getCoordinates(zipcode) {
+    var lat = "";
+    var lon = "";
+    geocoder = new google.maps.Geocoder();
+
+
+    geocoder.geocode( { 'address': zipcode}, function callbackLat(results, status){
+
+    var lat = results[0].geometry.location.lat();
+    var lon = results[0].geometry.location.lng();
+    var loc = lat + "%2C" + lon;
+    location = loc;
+    // setEnvironment(loc);
+    console.log(location);
+    });
+
+  }
+
+  // function getLocation(loc){
+  //   console.log(loc);
+  // }
+
+  function getZipcode(e){
+    e.preventDefault();
+    getCoordinates($('#zip').val());
+  }
+
+  $('.zip-validate').on('click', getZipcode(event));
+
   function getEnvironment() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
     var specialty = $('select.specialty-dropdown').find('option:selected').val();
     var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=37.773%2C-122.413%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=" + location + "%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
-
 
   function setEnvironment() {
     var environmentVars = getEnvironment();
@@ -19,22 +49,22 @@ $(function() {
 
   // GOOGLE MAPS API
   function initialize() {
-      var mapCanvas = document.getElementById('map');
+    var mapCanvas = document.getElementById('map');
 
-      var mapOptions = {
-        center: new google.maps.LatLng(37.773, -122.413),
-        zoom: 5,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-
-      var map = new google.maps.Map(mapCanvas, mapOptions);
-
-      var contentstring = '<div> Doctor <br> hello <br> sup </div>';
-
-      var infowindow = new google.maps.InfoWindow({
-        content:contentstring
-      })
+    var mapOptions = {
+      center: new google.maps.LatLng(37.773, -122.413),
+      zoom: 5,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    var contentstring = '<div> Doctor <br> hello <br> sup </div>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content:contentstring
+    })
+  }
 
   function populate() {
     var environmentVariables = setEnvironment();
@@ -139,5 +169,5 @@ $(function() {
 
   //This doc-search button also pulls the profiles
   $('#doc-search').on('click', getDocProfile);
-  $('.zip-validate').on('click', IsValidZipCode);
+  // $('.zip-validate').on('click', IsValidZipCode);
 });
