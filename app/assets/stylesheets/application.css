@@ -32,8 +32,8 @@
     font-family: "Helvetica Neue", Helvetica, Arial;
     padding-top: 20px;
     background-size: cover;
-
-
+    background-position: 0% 100%;
+    background-attachment: fixed;
   }
 
   .container {
@@ -177,7 +177,7 @@
   }
 
 #map {
-      width: 750px;
+      width: 800px;
       height: 500px;
 }
 

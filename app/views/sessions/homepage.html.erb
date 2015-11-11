@@ -1,25 +1,28 @@
-<h1>Hey there, <%= @user.first_name %></h1>
-<h2>Choose from one of the filters to get started.</h2><br>
-<%= render 'selections' %>
-<br><br>
-<div id="map"></div>
-<h3>BetterDoctor - Doctor Search Results</h3>
-<table class="table table-striped">
-    <thead>
+<div id="container">
+  <div id="one">
+    <h1>Hey there, <%= @user.first_name %></h1>
+    <h2>Choose from one of the filters to get started.</h2><br>
+    <%= render 'selections' %>
+    <div id="map"></div>
+  </div>
+  <div id="two">
+    <h3>BetterDoctor - Doctor Search Results</h3>
+    <table class="table table-striped">
+      <thead>
         <th>Name</th>
         <th>Specialty</th>
         <th>Rating</th>
         <th>Picture</th>
-    </thead>
-    <tbody class='doc-index'>
+      </thead>
+      <tbody class='doc-index'>
         <tr>
-            <td>Joseph Ciancio</td>
-            <td>Allergist</td>
-            <td>5-star</td>
-            <td>url</td>
+          <td>Joseph Ciancio</td>
+          <td>Allergist</td>
+          <td>5-star</td>
+          <td>url</td>
         </tr>
-            <%= link_to "Home", root_path %>
-    </tbody>
-</table>
-
-
+        <%= link_to "Home", root_path %>
+      </tbody>
+    </table>
+  </div>
+</div>
