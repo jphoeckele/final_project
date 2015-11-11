@@ -1,49 +1,21 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> Prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <%= form_for(@user) do |f| %>
+    <div class="header">
+      <h3>New User Sign Up</h3>
+      <p>Please fill out the form</p>
+    </div>
+    <div class="sep"></div>
+    <div class="inputs">
+      <%= f.text_field :first_name, placeholder: 'First Name', autofocus: true%>
+      <%= f.text_field :last_name, placeholder: 'Last Name' %>
+      <%= f.email_field :email, placeholder:'Email' %><%= f.email_field :email_confirmation, placeholder:'Email Confirmation' %>
+      <%= f.password_field :password, placeholder:'Password' %>
+      <%= f.password_field :password_confirmation, placeholder:'Password Confirmation' %>
+      <%= f.text_field :address, placeholder: 'Address' %>
+      <%= f.text_field :zip, placeholder: 'Zip Code' %>
+      <%= f.submit'Sign Up', class: "login" %>
     </div>
   <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :First_Name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :Last_Name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :Email %><br>
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :Email_Confirmation %><br>
-    <%= f.email_field :email_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :Password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :Password_Confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :Address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :Zip_Code %><br>
-    <%= f.number_field :zip %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
