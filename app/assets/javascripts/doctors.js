@@ -122,6 +122,9 @@ $(function() {
       for (var i = 0; i < list.length; i++) {
         var profile = list[i].profile;
         var specialties = list[i].specialties;
+        var phone = list[i].practices[0].phones[0].number;
+        var address = list[i].practices[0].visit_address;
+        console.log(list);
         var specialty = specialties[0].actor;
         if(!list[i].ratings[0]) {
           var stars = "/assets/rating-not-found.png"
@@ -129,7 +132,7 @@ $(function() {
           var ratings = list[i].ratings[0];
           var stars = ratings.image_url_small_2x;
         }
-        profiles += (template(profile.first_name, profile.last_name, specialty, stars, profile.image_url));
+        profiles += (template(profile.first_name, profile.last_name, specialty, phone, address.street, address.city, address.state, address.zip, stars, profile.image_url));
       }
       $('.doc-index').html(profiles);
     });
@@ -146,10 +149,12 @@ $(function() {
   }
 
   //Template for indexing doctors
-  function template(first_name, last_name, specialty, stars, picture) {
+  function template(first_name, last_name, specialty, phone, street, city, state, zip, stars, picture) {
     return ["<tr>",
     "<td>" + first_name + " " + last_name + "</td>",
     "<td>" + specialty + "</td>",
+    "<td><a href='tel:" + phone + "'>" + phone + "</a></td>",
+    "<td>" + street + " " + city + ", "+ state + ", " + zip + "</td>",
     "<td><img src=" + stars + "></td>",
     "<td><img src=" + picture + "></td>",
     "</tr>"
