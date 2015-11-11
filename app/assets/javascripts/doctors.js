@@ -1,11 +1,9 @@
 $(function() {
-  // var zipcode = "33143"
   var location;
+  var latitude;
+  var longitude;
   function getCoordinates(zipcode) {
-    var lat = "";
-    var lon = "";
     geocoder = new google.maps.Geocoder();
-
 
     geocoder.geocode( { 'address': zipcode}, function callbackLat(results, status){
 
@@ -13,22 +11,20 @@ $(function() {
     var lon = results[0].geometry.location.lng();
     var loc = lat + "%2C" + lon;
     location = loc;
-    // setEnvironment(loc);
     console.log(location);
+    longitude = lon;
+    latitude = lat;
     });
-
   }
 
-  // function getLocation(loc){
-  //   console.log(loc);
-  // }
-
-  function getZipcode(e){
-    e.preventDefault();
-    getCoordinates($('#zip').val());
+  function getZipcode(zipcode){
+    getCoordinates(zipcode);
   }
 
-  $('.zip-validate').on('click', getZipcode(event));
+  // $('.zip-validate').on('click', getZipcode($('#zip').val()));
+  // $('#doc-search').on('click', function() {
+  //   getZipcode($('#zip').val());
+  // });
 
   function getEnvironment() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
@@ -52,8 +48,8 @@ $(function() {
     var mapCanvas = document.getElementById('map');
 
     var mapOptions = {
-      center: new google.maps.LatLng(37.773, -122.413),
-      zoom: 5,
+      center: new google.maps.LatLng(latitude, longitude),
+      zoom: 3,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
@@ -91,7 +87,7 @@ $(function() {
       var mapCanvas = document.getElementById('map');
 
       var mapOptions = {
-        center: new google.maps.LatLng(37.773, -122.413),
+        center: new google.maps.LatLng(latitude, longitude),
         zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
@@ -162,10 +158,17 @@ $(function() {
 
   //Sets the search button as a variable to be called by the google maps DomListener
   var searchButton = document.getElementById('doc-search');
+  var validateButton = document.getElementById('zip-validate');
 
   //First we initialize an empty map, then on click of the search button we populate the map
   google.maps.event.addDomListener(window, 'load', initialize);
-  google.maps.event.addDomListener(searchButton, 'click', populate);
+  google.maps.event.addDomListener(validateButton, 'click', function(e) {
+    e.preventDefault();
+    getZipcode($('#zip').val());
+  });
+  google.maps.event.addDomListener(searchButton, 'click', function() {
+    populate();
+  });
 
   //This doc-search button also pulls the profiles
   $('#doc-search').on('click', getDocProfile);
