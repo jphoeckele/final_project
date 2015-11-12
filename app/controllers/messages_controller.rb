@@ -5,11 +5,13 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = Message.all
+    @message = Message.new
   end
 
   # GET /messages/1
   # GET /messages/1.json
   def show
+    render layout: !request.xhr?
   end
 
   # GET /messages/new
