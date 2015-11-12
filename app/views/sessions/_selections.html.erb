@@ -1,3 +1,8 @@
+<form>
+  <p><strong>Enter your zip:</strong> <%= text_field_tag 'zip' %></p>
+  <p id="zip-validate"><%= button_tag 'Validate' %></p>
+</form>
+<br>
 <select class="specialty-dropdown" name="specialty">
   <option value="acupuncturist">Acupuncture</option>
   <option value="addiction-counselor">Addiction Counseling</option>
@@ -275,13 +280,4 @@
   <option value="vsp">VSP</option>
 </select>
 <br><br>
-<form>
-  <p><strong>Enter your zip:</strong> <%= text_field_tag 'zip' %></p>
-  <p id="zip-validate"><%= button_tag 'Validate' %>
-</form>
-
 <p id="doc-search"><%= submit_tag 'Search' %></p>
-
-
-
-

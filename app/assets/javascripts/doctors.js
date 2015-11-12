@@ -2,6 +2,23 @@ $(function() {
   var location;
   var latitude;
   var longitude;
+
+  $('#zip-validate').data('clicked', false);
+
+  function disableSearch() {
+    if(!$('#zip-validate').data('clicked')) {
+      $('.specialty-dropdown').prop('disabled', true);
+      $('.insurance-dropdown').prop('disabled', true);
+      $('#doc-search :input').prop('disabled', true);
+    } else {
+      $('.specialty-dropdown').prop('disabled', false);
+      $('.insurance-dropdown').prop('disabled', false);
+      $('#doc-search :input').prop('disabled', false);
+    }
+  }
+
+  disableSearch();
+
   function getCoordinates(zipcode) {
     geocoder = new google.maps.Geocoder();
 
@@ -20,11 +37,6 @@ $(function() {
   function getZipcode(zipcode){
     getCoordinates(zipcode);
   }
-
-  // $('.zip-validate').on('click', getZipcode($('#zip').val()));
-  // $('#doc-search').on('click', function() {
-  //   getZipcode($('#zip').val());
-  // });
 
   function getEnvironment() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
@@ -84,12 +96,12 @@ $(function() {
         var specialties = list[i].specialties;
         var address = list[i].practices[0].visit_address;
         var specialty = specialties[0].actor;
-        var contentstring = box(profile.first_name, 
-                                profile.last_name, 
-                                specialty, 
-                                address.street, 
-                                address.city, 
-                                address.state, 
+        var contentstring = box(profile.first_name,
+                                profile.last_name,
+                                specialty,
+                                address.street,
+                                address.city,
+                                address.state,
                                 address.zip
                             );
         practices.forEach(function(practice) {
@@ -118,10 +130,10 @@ $(function() {
       for(var i=0; i<locations.length; i++ ) {
 
         var marker = new google.maps.Marker({
-          position: locations[i].latlng, 
-          map: map, 
+          position: locations[i].latlng,
+          map: map,
           title: locations[i].name
-        }); 
+        });
 
         var infowindow = new google.maps.InfoWindow({
             content:contentstring,
@@ -197,10 +209,24 @@ $(function() {
   google.maps.event.addDomListener(validateButton, 'click', function(e) {
     e.preventDefault();
     getZipcode($('#zip').val());
+    $(this).data('clicked', true);
+    allowSearch();
   });
   google.maps.event.addDomListener(searchButton, 'click', function() {
     populate();
   });
+
+  function allowSearch() {
+    if($('#zip-validate').data('clicked')) {
+      $('.specialty-dropdown').prop('disabled', false);
+      $('.insurance-dropdown').prop('disabled', false);
+      $('#doc-search :input').prop('disabled', false);
+    } else {
+      $('.specialty-dropdown').prop('disabled', true);
+      $('.insurance-dropdown').prop('disabled', true);
+      $('#doc-search :input').prop('disabled', true);
+    }
+  }
 
   //This doc-search button also pulls the profiles
   $('#doc-search').on('click', getDocProfile);
