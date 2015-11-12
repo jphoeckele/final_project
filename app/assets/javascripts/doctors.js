@@ -80,6 +80,18 @@ $(function() {
       var list = data.data
       for (var i = 0; i < list.length; i++) {
         var practices = list[i].practices;
+        var profile = list[i].profile;
+        var specialties = list[i].specialties;
+        var address = list[i].practices[0].visit_address;
+        var specialty = specialties[0].actor;
+        var contentstring = box(profile.first_name, 
+                                profile.last_name, 
+                                specialty, 
+                                address.street, 
+                                address.city, 
+                                address.state, 
+                                address.zip
+                            );
         practices.forEach(function(practice) {
           latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
         });
@@ -110,8 +122,6 @@ $(function() {
           map: map, 
           title: locations[i].name
         }); 
-
-        var contentstring = '<div> Doctor <br> hello <br> sup </div>';
 
         var infowindow = new google.maps.InfoWindow({
             content:contentstring,
@@ -170,6 +180,13 @@ $(function() {
     "</tr>"
     ].join();
   }
+
+   function box(first_name, last_name, specialty, street, city, state, zip) {
+    return [
+    "<p>" + first_name + " " + last_name + "<br>" + specialty + "<br>" + street + " " + city + ", "+ state + ", " + zip + "</p>"
+    ].join();
+  }
+
 
   //Sets the search button as a variable to be called by the google maps DomListener
   var searchButton = document.getElementById('doc-search');
