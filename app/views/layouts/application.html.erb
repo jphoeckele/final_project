@@ -22,6 +22,8 @@
     <%= link_to 'Edit Account', edit_user_path(@user) %>
     <%= link_to 'Sign Out', logout_path %>
     <a href="tel:911">Emergency</a>
+    <%= link_to "Home", root_path %>
+    <%= link_to "Forum", new_message_path %>
   <% else %>
     <%= link_to 'Sign In', new_sessions_path %>
     <%= link_to 'Sign Up', new_user_path %>
