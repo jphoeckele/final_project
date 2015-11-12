@@ -30,7 +30,7 @@ $(function() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
     var specialty = $('select.specialty-dropdown').find('option:selected').val();
     var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=best-match-desc&location=" + location + "%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=rating-desc&location=" + location + "%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
 
@@ -41,6 +41,12 @@ $(function() {
     var api_key = environmentVars.api_key;
     var resource_url = environmentVars.resource_url;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
+  }
+
+  function addListener(marker, infowindow, map) {
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
   }
 
   // GOOGLE MAPS API
@@ -55,12 +61,7 @@ $(function() {
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    var contentstring = '<div> Doctor <br> hello <br> sup </div>';
-
-    var infowindow = new google.maps.InfoWindow({
-      content:contentstring
-    })
-  }
+    }
 
   function populate() {
     var environmentVariables = setEnvironment();
@@ -103,15 +104,24 @@ $(function() {
       }
 
       for(var i=0; i<locations.length; i++ ) {
-        var marker = new google.maps.Marker({position: locations[i].latlng, map:map, title:locations[i].name});
-      }
 
-      // google.maps.event.addListener(marker,'click',function(){
-      //   infowindow.open(map,marker);
-      // });
+        var marker = new google.maps.Marker({
+          position: locations[i].latlng, 
+          map: map, 
+          title: locations[i].name
+        }); 
+
+        var contentstring = '<div> Doctor <br> hello <br> sup </div>';
+
+        var infowindow = new google.maps.InfoWindow({
+            content:contentstring,
+            position: marker.position
+        });
+
+        addListener(marker, infowindow, map);
+      }
     });
   }
-
   //Used to get and put doc info list to the screen
   function getDocProfile() {
     var environmentVariables = setEnvironment();
@@ -124,7 +134,7 @@ $(function() {
         var specialties = list[i].specialties;
         var phone = list[i].practices[0].phones[0].number;
         var address = list[i].practices[0].visit_address;
-        console.log(list);
+        //console.log(list);
         var specialty = specialties[0].actor;
         if(!list[i].ratings[0]) {
           var stars = "/assets/rating-not-found.png"
