@@ -2,6 +2,7 @@ $(function() {
   var location;
   var latitude;
   var longitude;
+  var infowindow;
 
   $('#zip-validate').data('clicked', false);
 
@@ -55,7 +56,12 @@ $(function() {
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
 
-  function addListener(marker, infowindow, map) {
+  function addListener(marker, map, contentstring) {
+    var infowindow = new google.maps.InfoWindow({
+            content:contentstring,
+            position: marker.position
+        });
+
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
@@ -113,7 +119,7 @@ $(function() {
 
       var mapOptions = {
         center: new google.maps.LatLng(latitude, longitude),
-        zoom: 7,
+        zoom: 9,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
@@ -135,12 +141,12 @@ $(function() {
           title: locations[i].name
         });
 
-        var infowindow = new google.maps.InfoWindow({
-            content:contentstring,
-            position: marker.position
-        });
+        // var infowindow = new google.maps.InfoWindow({
+        //     content:contentstring,
+        //     position: marker.position
+        // });
 
-        addListener(marker, infowindow, map);
+        addListener(marker, map, contentstring);
       }
     });
   }
