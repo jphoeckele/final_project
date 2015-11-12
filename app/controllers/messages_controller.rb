@@ -30,7 +30,6 @@ class MessagesController < ApplicationController
       else
         render :new
       end
-    end
   end
 
   # PATCH/PUT /messages/1
@@ -48,7 +47,6 @@ class MessagesController < ApplicationController
   def destroy
     @message.destroy
     redirect_to messages_url, notice: 'Message was successfully destroyed.'
-    end
   end
 
   private

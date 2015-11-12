@@ -19,7 +19,7 @@
 <%= alert %>
 <ul>
   <% if session[:user_id] %>
-    <%= link_to 'Edit Account', edit_user_path(@user) %>
+    <%#= link_to 'Edit Account', edit_user_path(@user) %>
     <%= link_to 'Sign Out', logout_path %>
     <a href="tel:911">Emergency</a>
     <%= link_to "Home", root_path %>
