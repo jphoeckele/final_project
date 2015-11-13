@@ -181,3 +181,18 @@
       height: 500px;
 }
 
+#container {
+    width:100%;
+    height:200px;
+}
+#one {
+    width:50%;
+    height:200px;
+    position: fixed;
+}
+#two {
+    width:50%;
+    height:200px;
+    float: right;
+}
+
