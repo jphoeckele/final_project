@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :messages
+
   root 'sessions#welcome'
 
   resource :sessions

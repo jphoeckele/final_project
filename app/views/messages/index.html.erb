@@ -2,8 +2,10 @@
 
 <h1>Listing Messages</h1>
 
-<% @messages.each do |message| %>
-  <%= render message %>
-<% end %>
+<div class="message-list">
+  <% @messages.each do |message| %>
+    <%= render message %>
+  <% end %>
+</div>
 <br>
 <%= render 'form' %>

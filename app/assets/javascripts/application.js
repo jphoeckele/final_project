@@ -20,6 +20,13 @@ $(function() {
   var longitude;
   var infowindow;
 
+	$('form').on('ajax:complete', function(event, xhr, status, error){
+		console.log(xhr.responseText);
+		$('.message-list').append(xhr.responseText);
+		$('#message_title').val("");
+		$('#message_description').val("");
+	});
+
   $('#zip-validate').data('clicked', false);
 
   function disableSearch() {
