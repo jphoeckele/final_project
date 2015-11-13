@@ -58,7 +58,7 @@ $(function() {
 
   function addListener(marker, map, contentstring) {
     var infowindow = new google.maps.InfoWindow({
-            content:contentstring,
+            content: contentstring,
             position: marker.position
         });
 
@@ -204,7 +204,6 @@ $(function() {
     "<p><img src=" + img_url + "><br>" + first_name + " " + last_name + "<br>" + specialty + "<br>" + street + " " + city + ", "+ state + ", " + zip + "</p>"
     ].join();
   }
-
 
   //Sets the search button as a variable to be called by the google maps DomListener
   var searchButton = document.getElementById('doc-search');
