@@ -3,6 +3,7 @@
 <div class="message-list">
   <% @messages.each do |message| %>
     <%= render message %>
+    <p>Comments: <%= message.comments.count %></p>
   <% end %>
 </div>
 <br>
