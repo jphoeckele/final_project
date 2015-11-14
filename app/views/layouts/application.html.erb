@@ -48,17 +48,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand" href="#page-top">Doctor Finder</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+                  <% if session[:user_id] %>
+                    <li><a href="tel:911">Emergency</a></li>                
+                    <li><%= link_to "Home", homepage_path %></li>
+                    <li><%= link_to "Forum", messages_path %></li>
+                    <li><%= link_to 'Sign Out', logout_path %></li>
+                  <% else %>
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
+                        <a href="#portfolio">Founders</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#about">About</a>
@@ -66,6 +72,9 @@
                     <li class="page-scroll">
                         <a href="#contact">Contact</a>
                     </li>
+                    <li><%= link_to 'Sign In', new_sessions_path %></li>
+                    <li><%= link_to 'Sign Up', new_user_path %></li>
+                  <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
