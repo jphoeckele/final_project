@@ -12,19 +12,24 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.readyselector
 //= require turbolinks
 //= require_tree .
+
 $(function() {
+  $('form#new_message').on('ajax:complete', function(event, xhr, status, error){
+    $('.message-list').append(xhr.responseText);
+    $('#message_title').val("");
+    $('#message_description').val("");
+  });
+});
+
+
+$('body.sessions.homepage').ready(function() {
   var location;
   var latitude;
   var longitude;
   var infowindow;
-
-	$('form#new_message').on('ajax:complete', function(event, xhr, status, error){
-		$('.message-list').append(xhr.responseText);
-		$('#message_title').val("");
-		$('#message_description').val("");
-	});
 
   $('#zip-validate').data('clicked', false);
 
@@ -101,7 +106,7 @@ $(function() {
 
     var map = new google.maps.Map(mapCanvas, mapOptions);
 
-    }
+  }
 
   function populate() {
     var environmentVariables = setEnvironment();
@@ -198,16 +203,6 @@ $(function() {
     });
   }
 
-  function IsValidZipCode() {
-    var zip = $('#zip').val();
-    var isValid = /^[0-9]{5}?$/.test(zip);
-    if (isValid){
-      alert('We need to convert to lat lon here');
-    } else {
-      alert('Invalid ZipCode');
-    }
-  }
-
   //Template for indexing doctors
   function template(first_name, last_name, specialty, phone, street, city, state, zip, stars, picture) {
     return ["<tr>",
@@ -258,5 +253,6 @@ $(function() {
 
   //This doc-search button also pulls the profiles
   $('#doc-search').on('click', getDocProfile);
-  // $('.zip-validate').on('click', IsValidZipCode);
 });
+
+
