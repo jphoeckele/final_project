@@ -20,8 +20,7 @@ $(function() {
   var longitude;
   var infowindow;
 
-	$('form').on('ajax:complete', function(event, xhr, status, error){
-		console.log(xhr.responseText);
+	$('form#new_message').on('ajax:complete', function(event, xhr, status, error){
 		$('.message-list').append(xhr.responseText);
 		$('#message_title').val("");
 		$('#message_description').val("");

@@ -1,5 +1,17 @@
 <p>
-	<strong>Title:</strong>
-	<%= link_to @message.title %>
+	<strong>Topic:</strong>
+	<%= @message.title %>
 	<p>Description: <%= @message.description %></p>
 </p>
+<h2>Comments</h2>
+<ul>
+  <% @message.comments.each do |comment| %>
+    <li><%= comment.body %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'New Comment',
+    new_message_comment_path(@message) %>
+</p>
+<%= link_to 'Back', messages_path %>
