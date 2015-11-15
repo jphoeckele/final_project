@@ -92,7 +92,7 @@ input:-moz-placeholder {
 
 #signup .inputs input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, .new_user .inputs input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
   background: #fff;
-  box-shadow: 0px 0px 0px 3px #fff38e, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
+  box-shadow: 0px 0px 0px 3px #18bc9c, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
   outline: none;
 }
 
@@ -118,8 +118,8 @@ input:-moz-placeholder {
     #a4b0cb);
   background: -webkit-gradient(
     linear, left top, left bottom,
-    from(#b9c5dd),
-    to(#a4b0cb));
+    from(#18bc9c),
+    to(#029176));
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -167,6 +167,12 @@ input:-moz-placeholder {
 
 #signup .header, .new_user .header {
   margin-bottom: 20px;
+}
+
+.btn-success, .btn-succss:hover {
+  background-image: linear-gradient(to bottom,#18bc9c 0,#029176 100%) !important;
+  border-color: #18bc9c !important;
+  background: -webkit-gradient( linear, left top, left bottom, from(#18bc9c), to(#029176)) !important;
 }
 
 a:hover {
