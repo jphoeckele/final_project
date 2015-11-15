@@ -224,6 +224,14 @@ div.index-right {
   height: 500px;
 }
 
+h4 {
+  margin-top: 20px !important;
+}
+
+.homepage {
+  margin: .3em;
+}
+
 #map {
   width: 600px;
   height: 500px;

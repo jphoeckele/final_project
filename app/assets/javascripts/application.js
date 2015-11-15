@@ -129,7 +129,7 @@ $('body.sessions.homepage').ready(function() {
         var specialties = list[i].specialties;
         var address = list[i].practices[0].visit_address;
         var specialty = specialties[0].actor;
-        var contentstring = box(profile.first_name,
+        var contentstring = box(profile.image_url, profile.first_name,
                                 profile.last_name,
                                 specialty,
                                 address.street,
@@ -216,9 +216,9 @@ $('body.sessions.homepage').ready(function() {
     ].join();
   }
 
-   function box(first_name, last_name, specialty, street, city, state, zip) {
+   function box(image_url, first_name, last_name, specialty, street, city, state, zip) {
     return [
-    "<p>" + first_name + " " + last_name + "<br>" + specialty + "<br>" + street + " " + city + ", "+ state + ", " + zip + "</p>"
+    "<p><img src=" + image_url + ">" + first_name + " " + last_name + "<br>" + specialty + "<br>" + street + " " + city + ", "+ state + ", " + zip + "</p>"
     ].join();
   }
 
