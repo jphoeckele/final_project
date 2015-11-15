@@ -169,6 +169,20 @@ input:-moz-placeholder {
   margin-bottom: 20px;
 }
 
+a:hover {
+  background-color: transparent;
+  text-decoration: none !important;
+  color: #666 !important;
+}
+
+a:visited:hover {
+  color: #18bc9c !important;
+}
+
+p {
+  line-height: 25px;
+}
+
 #map {
   width: 600px;
   height: 500px;
