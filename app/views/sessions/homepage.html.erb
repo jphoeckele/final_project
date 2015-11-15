@@ -1,38 +1,49 @@
 <br><br><br>
 <div class="homepage">
-<div class="container col-md-6">
-  <h3>Hey there, <%= @user.first_name %></h3>
-  <h4>1. Validate your zipcode to get started.</h4><br>
+  <div class='row well text-center'>
+        <h1>Welcome back, <%= @user.first_name %></h1>
 </div>
-<div class="container">
-  <br><br>
-  <h4>2. Select a specialty and an isurance plan.</h4>
-</div>
-  <%= render 'selections' %>
-  <div id="map" class="container col-md-6 left">
+  <div class='row'>
+    <div class="container col-md-6 well text-center">
+
+      <h4>Step 1: Validate your zipcode to get started.</h4><br>
+      <form>
+        <p>Please enter your zipcode:<br><br> <%= text_field_tag 'zip' %></p>
+        <p id="zip-validate"><%= button_tag 'Validate', class: "btn btn-lg btn-outline" %></p>
+      </form>
+    </div>
+    <div class="container col-md-6 text-center">
+      <br><br>
+      <h4>Step 2: Select a specialty and an isurance plan.</h4>
+      <%= render 'selections' %>
+    </div>
   </div>
-<div class="container col-md-6 index-right well">
-  <h4>BetterDoctor - Doctor Search Results</h4>
-  <table class="table table-striped">
-    <thead>
-      <th>Name</th>
-      <th>Specialty</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>Rating</th>
-      <th></th>
-    </thead>
-    <tbody class='doc-index'>
-      <tr>
-        <td>Joseph Ciancio</td>
-        <td>Allergist</td>
-        <td>(943)343-4343</td>
-        <td>2343 sw 185 st miami FL 33333</td>
-        <td>5-star</td>
-        <td>url</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+  <div class="container col-md-6 well">
+  <div id="map" class="container col-md-6 left">
+    </div>
+  </div>
+  <div class="container col-md-6 index-right well text-center">
+    <h4>BetterDoctor - Doctor Search Results</h4>
+    <table class="table table-striped">
+      <thead>
+        <th>Name</th>
+        <th>Specialty</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Rating</th>
+        <th></th>
+      </thead>
+      <tbody class='doc-index'>
+        <tr>
+          <td>Joseph Ciancio</td>
+          <td>Allergist</td>
+          <td>(943)343-4343</td>
+          <td>2343 sw 185 st miami FL 33333</td>
+          <td>5-star</td>
+          <td>url</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js"></script>

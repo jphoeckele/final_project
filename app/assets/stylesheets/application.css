@@ -14,21 +14,25 @@
  *= require_self
  */
 
- /*.specialty-dropdown, .insurance-dropdown {
-  font-size: 48px;
-  font-family: ARIAL;
-  display: inline-block;
-  padding: 4px 3px 3px 5px;
-  margin: 0;
-  font: inherit;
-  outline:none;
-  line-height: 4px;
-  background: #000;
-  color: white;
-  border:0;
+.specialty-dropdown, .insurance-dropdown {
+    /* Size and position */
+    position: relative; /* Enable absolute positioning for children and pseudo elements */
+    width: 200px;
+    padding: 20px;
+    margin: 0 auto;
+
+    /* Styles */
+    background: #fff;
+    color: #18bc9c;
+    outline: none;
+    cursor: pointer;
+
+    /* Font settings */
+    font-weight: bold;
+    font-size: 24px;
 }
 
-*/
+
 
 div.col-md-4.text-center {
   float: none !important;
