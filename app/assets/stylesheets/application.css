@@ -175,6 +175,23 @@ input:-moz-placeholder {
   background: -webkit-gradient( linear, left top, left bottom, from(#18bc9c), to(#029176)) !important;
 }
 
+.navbar-default .navbar-brand {
+  color: #18bc9c !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #18bc9c !important;
+}
+
+#zip-validate .btn, #doc-search .btn {
+  color: #fff !important;
+  background-color: #666;
+}
+
+#zip-validate .btn:hover, #doc-search .btn:hover {
+  background-color: #18bc9c !important;
+}
+
 a:hover {
   background-color: transparent;
   text-decoration: none !important;
