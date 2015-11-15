@@ -4,26 +4,25 @@
     <h1>Welcome back, <%= @user.first_name %></h1>
   </div>
   <div class='row'>
-    <div class="container col-md-6 well text-center">
+    <div class="container col-md-6 text-center">
 
-      <h4>Step 1: Validate your zipcode to get started.</h4><br>
+      <h3>Step 1: Validate your zipcode to get started.</h3><br>
       <form>
         <p>Please enter your zipcode:<br><br> <%= text_field_tag 'zip' %></p>
         <p id="zip-validate"><%= button_tag 'Validate', class: "btn btn-lg btn-outline" %></p>
       </form>
     </div>
     <div class="container col-md-6 text-center">
-      <br><br>
-      <h4>Step 2: Select a specialty and an isurance plan.</h4>
+      <h3>Step 2: Select a specialty and an isurance plan.</h3>
       <%= render 'selections' %>
     </div>
   </div>
-  <div class="container col-md-6 well">
-  <div id="map" class="container col-md-5 well row-centered">
+  <div class="container col-md-6">
+  <div id="map" class="container col-md-5 row-centered">
     </div>
   </div>
   <div class="container col-md-6 index-right well text-center">
-    <h4>BetterDoctor - Doctor Search Results</h4>
+    <h3>BetterDoctor - Doctor Search Results</h3>
     <table class="table table-striped">
       <thead>
         <th>Name</th>
