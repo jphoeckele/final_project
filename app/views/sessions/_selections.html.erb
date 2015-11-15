@@ -1,8 +1,11 @@
+<div class="container col-md-6 left"
 <form>
-  <p><strong>Enter your zip:</strong> <%= text_field_tag 'zip' %></p>
+  <p>Enter your zip: <%= text_field_tag 'zip' %></p>
   <p id="zip-validate"><%= button_tag 'Validate', class: "btn btn-lg btn-outline" %></p>
 </form>
+</div>
 <br>
+<div class="container col-md-6 right">
 <select class="specialty-dropdown" name="specialty">
   <option value="acupuncturist">Acupuncture</option>
   <option value="addiction-counselor">Addiction Counseling</option>
@@ -281,3 +284,5 @@
 </select>
 <br><br>
 <p id="doc-search"><%= submit_tag 'Search', class: "btn btn-lg btn-outline" %></p>
+</div>
+

@@ -195,7 +195,7 @@ $('body.sessions.homepage').ready(function() {
           var stars = "/assets/rating-not-found.png"
         } else {
           var ratings = list[i].ratings[0];
-          var stars = ratings.image_url_small_2x;
+          var stars = ratings.image_url_small;
         }
         profiles += (template(profile.first_name, profile.last_name, specialty, phone, address.street, address.city, address.state, address.zip, stars, profile.image_url));
       }

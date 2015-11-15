@@ -192,6 +192,10 @@ input:-moz-placeholder {
   background-color: #18bc9c !important;
 }
 
+.navbar {
+  max-height: 85px !important;
+}
+
 a:hover {
   background-color: transparent;
   text-decoration: none !important;
@@ -204,6 +208,20 @@ a:visited:hover {
 
 p {
   line-height: 25px;
+}
+
+div.col-md-6.right {
+  padding-bottom: 2em;
+}
+
+div.col-md-6.left {
+  width: 45%;
+  margin-right: 1.5em;
+}
+
+div.index-right {
+  overflow-y: scroll;
+  height: 500px;
 }
 
 #map {
