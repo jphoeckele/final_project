@@ -1,10 +1,15 @@
 <br><br><br><br>
-<h1>Open Forum</h1>
-
+<h1 class='container forum-title'>Open Forum</h1>
 <div class="message-list">
   <% @messages.each do |message| %>
-    <%= render message %>
-    <p>Comments: <%= message.comments.count %></p>
+    <div class='col-md-4'>
+      <div class='message'>
+        <%= render message %>
+        <p>Comments: <%= message.comments.count %></p>
+        <br>
+        <a class='btn-custom'<%= link_to 'View Discussion', message %>></a>
+      </div>
+    </div>
   <% end %>
 </div>
 <br>

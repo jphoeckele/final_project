@@ -86,7 +86,7 @@ input:-moz-placeholder {
   color:    #b5b5b5;
 }
 
-#signup .inputs input[type=email], input[type=password], input[type=text], .new_user .inputs input[type=email], input[type=password], input[type=text]  {
+#signup .inputs input[type=email], input[type=password], input[type=text], .new_user .inputs input[type=email], input[type=password], input[type=text], textarea#message_description, input#message_title  {
   background: #f5f5f5;
   font-size: 15px;
   -moz-border-radius: 3px;
@@ -100,7 +100,7 @@ input:-moz-placeholder {
   clear: both;
 }
 
-#signup .inputs input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, .new_user .inputs input[type=email]:focus, input[type=password]:focus, input[type=text]:focus {
+#signup .inputs input[type=email]:focus, input[type=password]:focus, input#message_title, .new_user .inputs input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, textarea#message_description {
   background: #fff;
   box-shadow: 0px 0px 0px 3px #18bc9c, inset 0px 2px 3px rgba( 0,0,0,0.2 ), 0px 5px 5px rgba( 0,0,0,0.15 );
   outline: none;
@@ -209,10 +209,17 @@ input:-moz-placeholder {
 a:hover {
   background-color: transparent;
   text-decoration: none !important;
-  color: #666 !important;
 }
 
-a:visited:hover {
+a:visited {
+  color: #18bc9c !important;
+}
+
+a.btn {
+  color: #fff !important;
+}
+
+a {
   color: #18bc9c !important;
 }
 
@@ -237,6 +244,71 @@ div.index-right {
 h4 {
   margin-top: 20px !important;
 }
+
+.message {
+    box-sizing: border-box;
+    background-color: #383838 ;
+    margin-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 1.4em 1.4em;
+    height: 150px;
+    border-bottom: 4px solid #18bc9c;
+}
+
+div.message p {
+  color: #fff;
+}
+
+h1.forum-title {
+  text-align: center;
+  padding-bottom: 1.5em;
+}
+
+.btn-custom {
+  background-color: #fff;
+  color: #18bc9c;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+.btn-custom:hover {
+  color: #18bc9c;
+  transition: 0.5s;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.message-show {
+  box-sizing: border-box;
+  background-color: #383838;
+  padding: 2.0em 1.5em;
+  border-bottom: 4px solid #18bc9c;
+  color: #fff;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+}
+
+.message-show h2 {
+    margin-top: 0;
+}
+
+.message-desc {
+    font-size: 1.1em;
+    line-height: 1.75;
+    margin-bottom: 50px;
+}
+
+.message-posted-by {
+    color: #eee;
+    font-size: 0.9em;
+}
+
+.reply-to-msg {
+    margin-top: 50px;
+}
+
 
 .homepage {
   margin: .3em;
