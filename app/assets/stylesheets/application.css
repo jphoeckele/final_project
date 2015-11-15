@@ -14,24 +14,24 @@
  *= require_self
  */
 
-.specialty-dropdown, .insurance-dropdown {
-    /* Size and position */
-    /* Enable absolute positioning for children and pseudo elements */
-    width: 400px;
-    padding: 20px;
-    margin: auto;
-    position: relative;
-    left: 50%;
+ .specialty-dropdown, .insurance-dropdown {
+  /* Size and position */
+  /* Enable absolute positioning for children and pseudo elements */
+  width: 400px;
+  padding: 20px;
+  margin: auto;
+  position: relative;
+  left: 50%;
 
-    /* Styles */
-    background: #18bc9c;
-    color: #fff;
-    outline: none;
-    cursor: pointer;
+  /* Styles */
+  background: #18bc9c;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
 
-    /* Font settings */
-    font-weight: bold;
-    font-size: 24px;
+  /* Font settings */
+  font-weight: bold;
+  font-size: 24px;
 }
 
 p#doc-search input {
@@ -246,14 +246,14 @@ h4 {
 }
 
 .message {
-    box-sizing: border-box;
-    background-color: #383838 ;
-    margin-bottom: 25px;
-    margin-right: 10px;
-    margin-left: 10px;
-    padding: 1.4em 1.4em;
-    height: 150px;
-    border-bottom: 4px solid #18bc9c;
+  box-sizing: border-box;
+  background-color: #383838 ;
+  margin-bottom: 25px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 1.4em 1.4em;
+  height: 150px;
+  border-bottom: 4px solid #18bc9c;
 }
 
 div.message p {
@@ -291,22 +291,22 @@ h1.forum-title {
 }
 
 .message-show h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .message-desc {
-    font-size: 1.1em;
-    line-height: 1.75;
-    margin-bottom: 50px;
+  font-size: 1.1em;
+  line-height: 1.75;
+  margin-bottom: 50px;
 }
 
 .message-posted-by {
-    color: #eee;
-    font-size: 0.9em;
+  color: #eee;
+  font-size: 0.9em;
 }
 
 .reply-to-msg {
-    margin-top: 50px;
+  margin-top: 50px;
 }
 
 
