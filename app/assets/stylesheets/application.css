@@ -16,14 +16,16 @@
 
 .specialty-dropdown, .insurance-dropdown {
     /* Size and position */
-    position: relative; /* Enable absolute positioning for children and pseudo elements */
-    width: 200px;
+    /* Enable absolute positioning for children and pseudo elements */
+    width: 400px;
     padding: 20px;
-    margin: 0 auto;
+    margin: auto;
+    position: relative;
+    left: 50%;
 
     /* Styles */
-    background: #fff;
-    color: #18bc9c;
+    background: #18bc9c;
+    color: #fff;
     outline: none;
     cursor: pointer;
 
@@ -32,6 +34,10 @@
     font-size: 24px;
 }
 
+p#doc-search input {
+  position: relative;
+  left: 50%;
+}
 
 
 div.col-md-4.text-center {
@@ -237,6 +243,6 @@ h4 {
 }
 
 #map {
-  width: 600px;
+  width: 100%;
   height: 500px;
 }
