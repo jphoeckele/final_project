@@ -6,19 +6,42 @@
                     <div class="intro-text">
                         <span class="name">Welcome to Doctor Finder</span>
                         <hr class="star-light">
-                        <span class="skills">Search through over a million doctors - Participate in an open forum</span>
+                        <span class="skills"><br><br></span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- Portfolio Grid Section -->
-    <section id="portfolio">
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>About</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 well text-center">
+                    <p>Doctor finder is a free to use online platform that allows you to search through a database of over a million doctors and view their practice's location on a map in real time</p>
+                </div>
+                <div class="col-lg-6 text-center well">
+                    <p>We are also creating a community for individuals to post about their experiences and discover new information through new and relevant content.</p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center ">
+                    <%= link_to 'Get Started Now', new_user_path, class: "btn btn-lg btn-outline" %>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="success"id="portfolio">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Founders</h2>
-                    <hr class="star-primary">
+                    <hr class="star-light">
                 </div>
             </div>
             <div class="row">
@@ -53,29 +76,6 @@
                     </a>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>About</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2 text-centered">
-                    <p>Doctor finder is a free to use online platform that allows users to search through a database of over a million doctors and view their practice location on a map in real time</p>
-                </div>
-                <div class="col-lg-4 text-centered">
-                    <p>We are also creating a community for individuals to post about their experiences and discover new information through new relevant content</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <%= link_to 'Get Started', new_user_path, class: "btn btn-lg btn-outline" %>
-                </div>
             </div>
         </div>
     </section>
