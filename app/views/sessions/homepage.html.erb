@@ -3,6 +3,7 @@
   <div class='row well text-center'>
     <h1>Welcome back, <%= @user.first_name %></h1>
   </div>
+  <!-- Beginning of 2 step validation, first one is setup to manually input zipcode -->
   <div class='row'>
     <div class="container col-md-6 text-center">
       <br>
@@ -14,6 +15,7 @@
     </div>
     <div class="container col-md-6 text-center">
       <br>
+  <!-- Second part of 2 step validation, second one allows for user to choose from dropdowns and determine area of search and insurance provider. -->
       <h3>Step 2: Select specialty and your insurance plan below.</h3>
       <%= render 'selections' %>
     </div>
@@ -26,6 +28,7 @@
     <h3>Your Doc Loc Search Results</h3>
     <table class="table table-striped">
       <thead>
+      <!-- Empty fields until search is validated and compiled. -->
         <th>Name</th>
         <th>Specialty</th>
         <th>Phone</th>

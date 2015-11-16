@@ -14,6 +14,14 @@
  *= require_self
  */
 
+/*Google map css*/
+#map {
+  width: 100%;
+  height: 500px;
+}
+/*End map css*/
+
+/*Dropdown menu on homepage which is populated by doctor speciality and insurance provider*/
  .specialty-dropdown, .insurance-dropdown {
   /* Size and position */
   /* Enable absolute positioning for children and pseudo elements */
@@ -33,6 +41,8 @@
   font-weight: bold;
   font-size: 24px;
 }
+/*   End dropdown menu css*/
+
 
 p#doc-search input {
   position: relative;
@@ -43,7 +53,7 @@ p#doc-search input {
 div.col-md-4.text-center {
   float: none !important;
 }
-
+/*SIGN UP AND SIGN IN FORM CSS CAN BE FOUND BELOW, BOTH OPERATE USING SEPERATE BOOTSTRAP ELEMENTS THAN THE REST OF THE PAGES*/
 
 #signup .header h3, .new_user .header h3 {
   color: #333333;
@@ -178,6 +188,9 @@ input:-moz-placeholder {
 #signup .header, .new_user .header {
   margin-bottom: 20px;
 }
+/* End signup/Signin form css and bootstrap */
+
+
 
 .btn-success, .btn-succss:hover {
   background-image: linear-gradient(to bottom,#18bc9c 0,#029176 100%) !important;
@@ -314,7 +327,4 @@ h1.forum-title {
   margin: .3em;
 }
 
-#map {
-  width: 100%;
-  height: 500px;
-}
+
