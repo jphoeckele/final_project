@@ -7,8 +7,8 @@
        <p><%= @message.description %></p>
      </p>
      <h3>Comments</h3>
-      <%= render @message.comments %>
-    <p>
+     <%= render @message.comments %>
+     <p>
       <a class='btn-custom'<%= link_to 'New Comment',
       new_message_comment_path(@message) %></a>
     </p>

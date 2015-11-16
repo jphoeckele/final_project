@@ -1,20 +1,20 @@
 <br><br><br><br><br><br><br>
 <div class="form container col-md-4 text-center">
   <%= form_for(@user) do |f| %>
-    <div class="header">
-      <h3>New User Sign Up</h3>
-      <p>Please fill out the form below</p>
-    </div>
-<!-- Form is used for new member signup only. contains additional info to be stored and accessed later -->
-    <div class="inputs">
-      <%= f.text_field :first_name, placeholder: 'First Name', autofocus: true%>
-      <%= f.text_field :last_name, placeholder: 'Last Name' %>
-      <%= f.email_field :email, placeholder:'Email' %><%= f.email_field :email_confirmation, placeholder:'Email Confirmation' %>
-      <%= f.password_field :password, placeholder:'Password' %>
-      <%= f.password_field :password_confirmation, placeholder:'Password Confirmation' %>
-      <%= f.text_field :address, placeholder: 'Address' %>
-      <%= f.text_field :zip, placeholder: 'Zip Code' %>
-      <%= f.submit'Submit', class: "login" %>
-    </div>
+  <div class="header">
+    <h3>New User Sign Up</h3>
+    <p>Please fill out the form below</p>
+  </div>
+  <!-- Form is used for new member signup only. contains additional info to be stored and accessed later -->
+  <div class="inputs">
+    <%= f.text_field :first_name, placeholder: 'First Name', autofocus: true%>
+    <%= f.text_field :last_name, placeholder: 'Last Name' %>
+    <%= f.email_field :email, placeholder:'Email' %><%= f.email_field :email_confirmation, placeholder:'Email Confirmation' %>
+    <%= f.password_field :password, placeholder:'Password' %>
+    <%= f.password_field :password_confirmation, placeholder:'Password Confirmation' %>
+    <%= f.text_field :address, placeholder: 'Address' %>
+    <%= f.text_field :zip, placeholder: 'Zip Code' %>
+    <%= f.submit'Submit', class: "login" %>
+  </div>
   <% end %>
 </div>

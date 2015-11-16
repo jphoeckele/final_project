@@ -205,7 +205,7 @@ input:-moz-placeholder {
 .navbar-default .navbar-nav>li>a {
   color: #18bc9c !important;
 }
-
+/*Makes validation buttons grey until selected in order */
 #zip-validate .btn, #doc-search .btn {
   color: #fff !important;
   background-color: #666;
@@ -214,7 +214,7 @@ input:-moz-placeholder {
 #zip-validate .btn:hover, #doc-search .btn:hover {
   background-color: #18bc9c !important;
 }
-
+/*End validation buttons details*/
 .navbar {
   max-height: 85px !important;
 }

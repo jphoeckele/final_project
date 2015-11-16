@@ -2,14 +2,14 @@
 <h1 class='container forum-title well'><br>Welcome to the Doc Loc Forum</h1>
 <div class="message-list">
   <% @messages.each do |message| %>
-    <div class='col-md-4'>
-      <div class='message'>
-        <%= render message %>
-        <p>Comments: <%= message.comments.count %></p>
-        <br>
-        <a class='btn-custom'<%= link_to 'View Discussion', message %>></a>
-      </div>
+  <div class='col-md-4'>
+    <div class='message'>
+      <%= render message %>
+      <p>Comments: <%= message.comments.count %></p>
+      <br>
+      <a class='btn-custom'<%= link_to 'View Discussion', message %>></a>
     </div>
+  </div>
   <% end %>
 </div>
 <br>

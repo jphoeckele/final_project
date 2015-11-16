@@ -18,23 +18,12 @@ Rails.application.routes.draw do
 
   get 'logout' => 'sessions#logout'
 
-  get 'doctors/show'
-
-  get 'doctors/index'
-
-  get 'doctors/search'
   # get 'sessions/new'
-
   # get 'users/new'
-
   # get 'users/show'
-
   # get 'users/edit'
-
   # get 'users/destroy'
-
   # get 'users/create'
-
   # get 'users/update'
 
 

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   before_action :set_user, only: [:welcome, :homepage]
 
+
   def new
   end
 

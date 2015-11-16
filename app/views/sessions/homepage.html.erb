@@ -9,13 +9,13 @@
       <br>
       <h3>Step 1: Validate your zipcode to get started.</h3><br>
       <form>
-      <p><br><%= text_field_tag 'zip', nil, placeholder: 'Enter Zipcode', autofocus: true%></p>
+        <p><br><%= text_field_tag 'zip', nil, placeholder: 'Enter Zipcode', autofocus: true%></p>
         <p id="zip-validate"><%= button_tag 'Validate', class: "btn btn-lg btn-outline" %></p>
       </form>
     </div>
     <div class="container col-md-6 text-center">
       <br>
-  <!-- Second part of 2 step validation, second one allows for user to choose from dropdowns and determine area of search and insurance provider. -->
+      <!-- Second part of 2 step validation, second one allows for user to choose from dropdowns and determine area of search and insurance provider. -->
       <h3>Step 2: Select specialty and your insurance plan below.</h3>
       <%= render 'selections' %>
     </div>
@@ -28,7 +28,7 @@
     <h3>Your Doc Loc Search Results</h3>
     <table class="table table-striped">
       <thead>
-      <!-- Empty fields until search is validated and compiled. -->
+        <!-- Empty fields until search is validated and compiled. -->
         <th>Name</th>
         <th>Specialty</th>
         <th>Phone</th>
