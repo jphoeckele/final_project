@@ -245,6 +245,11 @@ h4 {
   margin-top: 20px !important;
 }
 
+div.portfolio-item {
+  left: 6%;
+  position: relative;
+}
+
 .message {
   box-sizing: border-box;
   background-color: #383838 ;
