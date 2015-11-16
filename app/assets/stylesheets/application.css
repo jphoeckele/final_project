@@ -192,7 +192,7 @@ input:-moz-placeholder {
 
 
 
-.btn-success, .btn-succss:hover {
+.btn-success, .btn-success:hover {
   background-image: linear-gradient(to bottom,#18bc9c 0,#029176 100%) !important;
   border-color: #18bc9c !important;
   background: -webkit-gradient( linear, left top, left bottom, from(#18bc9c), to(#029176)) !important;
@@ -224,12 +224,12 @@ a:hover {
   text-decoration: none !important;
 }
 
-a:visited {
+/*a:visited {
   color: #18bc9c !important;
-}
+}*/
 
-a.btn {
-  color: #fff !important;
+div.message a {
+  color: #18bc9c !important;
 }
 
 a {
@@ -291,6 +291,15 @@ h1.forum-title {
   transition: 0.5s;
   background-color: #fff;
   text-decoration: none;
+}
+
+a.btn.btn-lg {
+  color: #18bc9c;
+}
+
+a.btn.btn-lg:hover {
+  color: #fff !important;
+  background-color: #18bc9c;
 }
 
 .message-show {
