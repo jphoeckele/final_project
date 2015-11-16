@@ -37,7 +37,7 @@
           <%= link_to 'Sign Out', logout_path %>
           <a href="tel:911">Emergency</a>
           <%= link_to "Home", homepage_path %>
-          <%= link_to "Forum", messages_path %>
+          <%= link_to "Health Forum", messages_path %>
           <% else %>
 
           <%= link_to 'Sign In', new_sessions_path %>
@@ -65,7 +65,7 @@
                 <% if session[:user_id] %>
                 <li><a href="tel:911">Emergency</a></li>
                 <li><%= link_to "Home", homepage_path %></li>
-                <li><%= link_to "Forum", messages_path %></li>
+                <li><%= link_to "Health Forum", messages_path %></li>
                 <li><%= link_to 'Sign Out', logout_path %></li>
                 <% else %>
                 <li class="hidden">
