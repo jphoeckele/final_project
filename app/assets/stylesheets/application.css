@@ -270,7 +270,7 @@ div.portfolio-item {
   margin-right: 10px;
   margin-left: 10px;
   padding: 1.4em 1.4em;
-  height: 150px;
+  /*height: 150px;*/
   border-bottom: 4px solid #18bc9c;
 }
 
