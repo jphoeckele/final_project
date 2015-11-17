@@ -24,7 +24,7 @@ $(function() {
   });
 });
 
-
+//Javascript that only runs on the homepage view
 $('body.sessions.homepage').ready(function() {
   var location;
   var latitude;
@@ -33,6 +33,7 @@ $('body.sessions.homepage').ready(function() {
 
   $('#zip-validate').data('clicked', false);
 
+  //Disable's the search button unless the validate button has been clicked
   function disableSearch() {
     if(!$('#zip-validate').data('clicked')) {
       $('.specialty-dropdown').prop('disabled', true);
