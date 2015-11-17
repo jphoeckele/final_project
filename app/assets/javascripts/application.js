@@ -147,7 +147,7 @@ $('body.sessions.homepage').ready(function() {
 
       var mapOptions = {
         center: new google.maps.LatLng(latitude, longitude),
-        zoom: 9,
+        zoom: 8,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
@@ -198,17 +198,16 @@ $('body.sessions.homepage').ready(function() {
           var ratings = list[i].ratings[0];
           var stars = ratings.image_url_small;
         }
-        profiles += (template(profile.first_name, profile.last_name, specialty, phone, address.street, address.city, address.state, address.zip, stars, profile.image_url));
+        profiles += (template(profile.first_name, profile.last_name, phone, address.street, address.city, address.state, address.zip, stars, profile.image_url));
       }
       $('.doc-index').html(profiles);
     });
   }
 
   //Template for indexing doctors
-  function template(first_name, last_name, specialty, phone, street, city, state, zip, stars, picture) {
+  function template(first_name, last_name, phone, street, city, state, zip, stars, picture) {
     return ["<tr>",
     "<td>" + first_name + " " + last_name + "</td>",
-    "<td>" + specialty + "</td>",
     "<td><a href='tel:" + phone + "'>" + phone + "</a></td>",
     "<td>" + street + " " + city + ", "+ state + ", " + zip + "</td>",
     "<td><img src=" + stars + "></td>",
