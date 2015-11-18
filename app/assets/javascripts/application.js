@@ -86,7 +86,7 @@ $('body.sessions.homepage').ready(function() {
 
   function addListener(marker, map, contentstring) {
     var infowindow = new google.maps.InfoWindow({
-            content:contentstring,
+            content: contentstring,
             position: marker.position
         });
 
@@ -166,6 +166,7 @@ $('body.sessions.homepage').ready(function() {
         var marker = new google.maps.Marker({
           position: locations[i].latlng,
           map: map,
+          animation: google.maps.Animation.DROP,
           title: locations[i].name
         });
 
