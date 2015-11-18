@@ -35,7 +35,7 @@
           <% if session[:user_id] %>
           <%#= link_to 'Edit Account', edit_user_path(@user) %>
           <%= link_to 'Sign Out', logout_path %>
-          <a href="tel:911">Emergency</a>
+          <!-- <a href="tel:911">Emergency</a> -->
           <%= link_to "Home", homepage_path %>
           <%= link_to "Health Forum", messages_path %>
           <% else %>
@@ -75,12 +75,12 @@
                 <li class="page-scroll">
                   <a href="#about">About</a>
                 </li>
-                <li class="page-scroll">
+                <!-- <li class="page-scroll">
                   <a href="#portfolio">Founders</a>
                 </li>
                 <li class="page-scroll">
                   <a href="#contact">Contact</a>
-                </li>
+                </li> -->
                 <li><%= link_to 'Sign In', new_sessions_path %></li>
                 <li><%= link_to 'Sign Up', new_user_path %></li>
                 <% end %>
