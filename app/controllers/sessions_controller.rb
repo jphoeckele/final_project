@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-  before_action :set_user, only: [:welcome, :homepage]
-
+  before_action :set_user, only: [:homepage]
+  after_action :forget_user, only: [:logout]
 
   def new
   end
@@ -30,6 +30,10 @@ class SessionsController < ApplicationController
   private
   def set_user
     @user = User.find_by(params[:email])
+  end
+
+  def forget_user
+    @user = nil
   end
 end
 
