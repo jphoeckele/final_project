@@ -71,7 +71,7 @@ $('body.sessions.homepage').ready(function() {
     var insurance = $('select.insurance-dropdown').find('option:selected').val();
     var specialty = $('select.specialty-dropdown').find('option:selected').val();
     var api_key = '9c6f158f207798d47ab9a94c95dfaabc';
-    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=rating-desc&location=" + location + "%2C100&user_location=37.773%2C-122.413&skip=0&limit=25&user_key=" + api_key;
+    var resource_url = "https://api.betterdoctor.com/2015-01-27/doctors?specialty_uid=" + specialty + "&insurance_uid=" + insurance + "&sort=rating-desc&location=" + location + "%2C100&user_location=" + location + "&skip=0&limit=25&user_key=" + api_key;
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
 
@@ -124,6 +124,7 @@ $('body.sessions.homepage').ready(function() {
     latlng.success(function(data) {
       latLngInfo = new Object();
       var list = data.data
+      console.log(list);
       for (var i = 0; i < list.length; i++) {
         var practices = list[i].practices;
         var profile = list[i].profile;
