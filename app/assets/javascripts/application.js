@@ -87,7 +87,6 @@ $('body.sessions.homepage').ready(function() {
   function addListener(marker, map, contentstring) {
     var infowindow = new google.maps.InfoWindow({
             content: contentstring,
-            position: marker.position
         });
 
     marker.addListener('click', function() {
@@ -156,13 +155,13 @@ $('body.sessions.homepage').ready(function() {
 
       var locations = [];
 
-      for (var practice in latLngInfo) {
-        var lat = latLngInfo[practice].lat;
-        var lon = latLngInfo[practice].lon;
-        locations.push ( {name: practice, latlng: new google.maps.LatLng(lat, lon)});
+      for (var i=0; i<latLngInfo.length; i++) {
+        var lat = latLngInfo[i].lat;
+        var lon = latLngInfo[i].lon;
+        locations.push ( {name: latLngInfo[i].name, latlng: new google.maps.LatLng(lat, lon)});
       }
 
-      for(var i=0; i<locations.length; i++ ) {
+      for(var i=0; i<latLngInfo.length; i++ ) {
 
         var marker = new google.maps.Marker({
           position: locations[i].latlng,
