@@ -122,11 +122,11 @@ $('body.sessions.homepage').ready(function() {
     var latlng = getLatLng();
 
     latlng.success(function(data) {
-      latLngInfo = new Object();
+      latLngInfo = [];
       var list = data.data
       console.log(list);
       for (var i = 0; i < list.length; i++) {
-        var practices = list[i].practices;
+        var practices = list[i].practices[0];
         var profile = list[i].profile;
         var specialties = list[i].specialties;
         var address = list[i].practices[0].visit_address;
@@ -139,10 +139,10 @@ $('body.sessions.homepage').ready(function() {
                                 address.state,
                                 address.zip
                             );
-        practices.forEach(function(practice) {
-          latLngInfo[practice.name] = {'lat': practice.lat, 'lon': practice.lon};
-        });
+        latLngInfo.push (practices);
       }
+
+      console.log(latLngInfo);
 
       var mapCanvas = document.getElementById('map');
 
