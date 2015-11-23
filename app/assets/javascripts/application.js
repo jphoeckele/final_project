@@ -84,12 +84,12 @@ $('body.sessions.homepage').ready(function() {
     return {insurance: insurance, specialty: specialty, api_key: api_key, resource_url: resource_url};
   }
 
-  function addListener(marker, map, contentstring) {
+  function addListener(marker, map, html) {
     var infowindow = new google.maps.InfoWindow({
-            content: contentstring,
         });
 
     marker.addListener('click', function() {
+      infowindow.setContent(html);
       infowindow.open(map, marker);
     });
   }
@@ -122,6 +122,7 @@ $('body.sessions.homepage').ready(function() {
 
     latlng.success(function(data) {
       latLngInfo = [];
+      docInfo = [];
       var list = data.data
       console.log(list);
       for (var i = 0; i < list.length; i++) {
@@ -138,10 +139,11 @@ $('body.sessions.homepage').ready(function() {
                                 address.state,
                                 address.zip
                             );
+        docInfo.push (contentstring);
         latLngInfo.push (practices);
       }
 
-      console.log(latLngInfo);
+      console.log(docInfo);
 
       var mapCanvas = document.getElementById('map');
 
@@ -161,8 +163,7 @@ $('body.sessions.homepage').ready(function() {
         locations.push ( {name: latLngInfo[i].name, latlng: new google.maps.LatLng(lat, lon)});
       }
 
-      for(var i=0; i<latLngInfo.length; i++ ) {
-
+      for(var i=0; i<locations.length; i++ ) {
         var marker = new google.maps.Marker({
           position: locations[i].latlng,
           map: map,
@@ -175,7 +176,7 @@ $('body.sessions.homepage').ready(function() {
         //     position: marker.position
         // });
 
-        addListener(marker, map, contentstring);
+        addListener(marker, map, docInfo[i]);
       }
     });
   }
