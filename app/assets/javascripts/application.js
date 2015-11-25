@@ -170,12 +170,6 @@ $('body.sessions.homepage').ready(function() {
           animation: google.maps.Animation.DROP,
           title: locations[i].name
         });
-
-        // var infowindow = new google.maps.InfoWindow({
-        //     content:contentstring,
-        //     position: marker.position
-        // });
-
         addListener(marker, map, docInfo[i]);
       }
     });
@@ -192,7 +186,6 @@ $('body.sessions.homepage').ready(function() {
         var specialties = list[i].specialties;
         var phone = list[i].practices[0].phones[0].number;
         var address = list[i].practices[0].visit_address;
-        //console.log(list);
         var specialty = specialties[0].actor;
         if(!list[i].ratings[0]) {
           var stars = "/assets/rating-not-found.png"
