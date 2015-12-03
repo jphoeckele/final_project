@@ -204,6 +204,7 @@ input:-moz-placeholder {
 .navbar-default .navbar-nav>li>a {
   color: #18bc9c !important;
 }
+
 /*Makes validation buttons grey until selected in order */
 #zip-validate .btn, #doc-search .btn {
   color: #fff !important;
@@ -214,10 +215,17 @@ input:-moz-placeholder {
   background-color: #18bc9c !important;
 }
 /*End validation buttons details*/
+
+/* The theme has p elements in white so this makes them black when inside of the white text areas */
+textarea#comment_body {
+  color: black;
+}
+
 .navbar {
   max-height: 85px !important;
 }
 
+/* Begin Link Styling */
 a:hover {
   background-color: transparent;
   text-decoration: none !important;
@@ -234,6 +242,7 @@ div.message a {
 a {
   color: #18bc9c !important;
 }
+/* End link styling */
 
 p {
   line-height: 25px;
