@@ -216,9 +216,11 @@ input:-moz-placeholder {
 }
 /*End validation buttons details*/
 
-/* The theme has p elements in white so this makes them black when inside of the white text areas */
+/* Styling for textareas in forms */
 textarea#comment_body {
+  /* The theme has p elements in white so this makes them black when inside of the white text areas */
   color: black;
+  width: 30%;
 }
 
 .navbar {
