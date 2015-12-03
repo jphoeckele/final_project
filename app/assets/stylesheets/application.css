@@ -53,7 +53,8 @@ p#doc-search input {
 div.col-md-4.text-center {
   float: none !important;
 }
-/*SIGN UP AND SIGN IN FORM CSS CAN BE FOUND BELOW, BOTH OPERATE USING SEPERATE BOOTSTRAP ELEMENTS THAN THE REST OF THE PAGES*/
+/* SIGN UP AND SIGN IN FORM CSS CAN BE FOUND BELOW,
+BOTH OPERATE USING SEPERATE BOOTSTRAP ELEMENTS THAN THE REST OF THE PAGES*/
 
 #signup .header h3, .new_user .header h3 {
   color: #333333;
@@ -190,8 +191,6 @@ input:-moz-placeholder {
 }
 /* End signup/Signin form css and bootstrap */
 
-
-
 .btn-success, .btn-success:hover {
   background-image: linear-gradient(to bottom,#18bc9c 0,#029176 100%) !important;
   border-color: #18bc9c !important;
@@ -283,6 +282,16 @@ h1.forum-title {
   padding-bottom: 1.5em;
 }
 
+input[type=submit] {
+  background-color: #fff;
+  color: #18bc9c;
+  font-family: 'Muli', sans-serif;
+  font-weight: 300;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: none !important;
+}
+
 .btn-custom {
   background-color: #fff;
   color: #18bc9c;
@@ -336,9 +345,6 @@ a.btn.btn-lg:hover {
   margin-top: 50px;
 }
 
-
 .homepage {
   margin: .3em;
 }
-
-

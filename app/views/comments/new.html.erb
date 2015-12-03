@@ -1,6 +1,8 @@
-<h1>New Comment for: </h1>
-<h4>Topic: <%= @message.title %></h2>
-<h4>Body: <%= @message.description %></h3>
-
-<%= render 'form' %>
-<%= link_to 'Back', @message %>
+<br><br><br><br>
+<div class="container new-comment message-show">
+  <h1>New Comment for: </h1>
+  <h4>Topic: <%= @message.title %></h4>
+  <h4>Body: <%= @message.description %></h4>
+  <%= render 'form' %>
+  <%= link_to 'Back', @message %>
+</div>
