@@ -1,28 +1,7 @@
-== README
+This app can be viewed at docloc.co
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This was the final project that Joe Ciancio, Josh Breault, and I created for Wyncode's pitch day. It's a site created using the Google Map's API and the Better Doctor API. We completed this a about 2 weeks time and the site mostly uses JavaScript in order to complete most of it's functionality. We implemented Bootstrap in the design. It has a simple login/signup system which we created using bcrypt. 
 
-Things you may want to cover:
+The site itself allows the user to sign up and then search an area code for doctors and to filter the search by specialty and insurance provider. It then plots the doctor's practice location onto a map and lists out the doctors on a table with their contact info. As a last minute addition we added a basic forum. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+During this project we used pair programming and a variant of the Agile system. 2 of us would work together from one computer while one worked on smaller tasks. We would then switch up the groups. This way everyone was able to work on all aspects of the project and contribute their unique perspectives. We had our daily stand-ups and retros every 4th day. We used this project as a way to familiarize ourselves with APIs and how to make them communicate to each. 
